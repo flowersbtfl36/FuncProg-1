@@ -1,0 +1,52 @@
+doubleEven :: [Int] -> [Int]
+doubleEven = map (\x -> if even x then x * 2 else x)
+
+sumOdd :: [Int] -> Int
+sumOdd xs = sum (filter odd xs)
+
+absList :: [Int] -> [Int]
+absList = map abs
+
+myLength :: [a] -> Int
+myLength [] = 0                    
+myLength (_:xs) = 1 + myLength xs
+
+myReverse :: [a] -> [a]
+myReverse [] = []                 
+myReverse (x:xs) = myReverse xs ++ [x]
+-- 1- 2,3 ++ 1
+-- 2- 3++2
+-- 3- [] ++3 
+
+myMaximum :: (Ord a) => [a] -> a
+myMaximum [x] = x
+myMaximum (x:xs) = max x (myMaximum xs)
+
+pythagoreanTriplesUnique :: [(Int, Int, Int)]
+pythagoreanTriplesUnique = [(a,b,c) | a <- [1..20], b <- [a..20], c <- [1..20], a^2 + b^2 == c^2]
+
+fib :: Int -> Int
+fib 0 = 0           
+fib 1 = 1           
+fib n = fib (n-1) + fib (n-2)  
+
+
+
+main :: IO ()
+main = do
+    print (doubleEven [1,2,3,4,5,6,7,8,9,10,11,12,13,14])
+    print (sumOdd [1,2,3,4,5])
+    print (absList [-3,5,-7, 3, 0, 2])
+    print (myLength [1, 2, 991, 234, 3, 4])
+    print (myReverse [1,2,3,5,8,9])
+    print (myMaximum [1, 234, 99, 3, 999, 1004, 6])
+    print (pythagoreanTriplesUnique)
+    print (fib 8)
+    
+    
+    
+    
+    
+    
+    
+    
